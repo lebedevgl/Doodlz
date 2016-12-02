@@ -159,4 +159,23 @@ public class MainActivityFragment extends Fragment {
             doodleView.saveImage();
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions, int[] grantedResults) {
+        switch (requestCode) {
+            case SAVE_IMAGE_PERMISSION_REQUEST_CODE:
+                if (grantedResults[0] == PackageManager.PERMISSION_GRANTED)
+                    doodleView.saveImage();
+                return;
+        }
+    }
+
+    public DoodleView getDoodleView() {
+        return doodleView;
+    }
+
+    public void setDialogOnScreen(boolean visible) {
+        dialogOnScreen = visible;
+    }
 }
