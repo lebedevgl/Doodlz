@@ -58,8 +58,8 @@ public class DoodleView extends View {
         paintLine.setColor(color);
     }
 
-    public void getDrawingColor() {
-        paintLine.getColor();
+    public int getDrawingColor() {
+        return paintLine.getColor();
     }
 
     public int getLineWidth() {
@@ -163,6 +163,22 @@ public class DoodleView extends View {
 
         }
 
+    }
+
+    public void printImage() {
+        if (PrintHelper.systemSupportsPrint()) {
+            PrintHelper printHelper = new PrintHelper(getContext());
+            printHelper.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+            printHelper.printBitmap("Doodlz Image", bitmap);
+        }
+        else {
+            Toast messagen = Toast.makeText(getContext(),
+                    R.string.message_error_printing,
+                    Toast.LENGTH_SHORT);
+            messagen.setGravity(Gravity.CENTER, messagen.getXOffset() / 2,
+                    messagen.getYOffset() /2 );
+            messagen.show();
+        }
     }
 
 }
