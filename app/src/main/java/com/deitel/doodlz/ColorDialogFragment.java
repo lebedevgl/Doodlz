@@ -1,5 +1,6 @@
 package com.deitel.doodlz;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -61,4 +62,42 @@ public class ColorDialogFragment extends DialogFragment{
     private MainActivityFragment getDoodleFragment() {
         return (MainActivityFragment)getFragmentManager().findFragmentById(R.id.doodleView);
     }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        MainActivityFragment fragment = getDoodleFragment();
+        if (fragment != null)
+            fragment.setDialogOnScreen(true);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivityFragment fragment = getDoodleFragment();
+        if (fragment != null)
+            fragment.setDialogOnScreen(false);
+    }
+
+    private SeekBar.OnSeekBarChangeListener colorChangedListener = new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if (fromUser) {
+                color = Color.argb(alphaSeekBar.getProgress(),
+                        redSeekBar.getProgress(), greenSeekBar.getProgress(),
+                        blueSeekBar.getProgress());
+                colorView.setBackgroundColor(color);
+            }
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    };
 }
