@@ -62,6 +62,10 @@ public class DoodleView extends View {
         return paintLine.getColor();
     }
 
+    public void setLineWidth(int width) {
+        paintLine.setStrokeWidth(width);
+    }
+
     public int getLineWidth() {
         return (int) paintLine.getStrokeWidth();
     }
