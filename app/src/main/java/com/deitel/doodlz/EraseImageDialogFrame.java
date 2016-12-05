@@ -14,7 +14,7 @@ public class EraseImageDialogFrame extends DialogFragment{
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.message_erase);
 
-        builder.setPositiveButton(R.string.button_set_line_width,
+        builder.setPositiveButton(R.string.button_erase,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -27,7 +27,7 @@ public class EraseImageDialogFrame extends DialogFragment{
     }
 
     private MainActivityFragment getDoodleFragment() {
-        return (MainActivityFragment) getFragmentManager().findFragmentById(R.id.doodleView);
+        return (MainActivityFragment) getFragmentManager().findFragmentById(R.id.doodleFragment);
     }
 
     @Override

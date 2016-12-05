@@ -35,6 +35,8 @@ public class ColorDialogFragment extends DialogFragment{
                 R.id.greenSeekBar);
         blueSeekBar = (SeekBar)colorDialogView.findViewById(
                 R.id.blueSeekBar);
+        colorView = (View)colorDialogView.findViewById(
+                R.id.colorView);
 
         alphaSeekBar.setOnSeekBarChangeListener(colorChangedListener);
         redSeekBar.setOnSeekBarChangeListener(colorChangedListener);
@@ -60,7 +62,7 @@ public class ColorDialogFragment extends DialogFragment{
     }
 
     private MainActivityFragment getDoodleFragment() {
-        return (MainActivityFragment)getFragmentManager().findFragmentById(R.id.doodleView);
+        return (MainActivityFragment)getFragmentManager().findFragmentById(R.id.doodleFragment);
     }
 
     @Override

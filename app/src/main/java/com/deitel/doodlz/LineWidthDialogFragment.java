@@ -48,7 +48,7 @@ public class LineWidthDialogFragment extends DialogFragment {
     }
 
     private MainActivityFragment getDoodleFragment() {
-        return (MainActivityFragment) getFragmentManager().findFragmentById(R.id.doodleView);
+        return (MainActivityFragment) getFragmentManager().findFragmentById(R.id.doodleFragment);
     }
 
     @Override
